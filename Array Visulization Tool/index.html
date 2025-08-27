@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Visualizer - Interactive Learning Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cube"></i> Array Visualizer</h1>
+            <p>Interactive learning tool for array data structures</p>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="control-section">
+                    <h3><i class="fas fa-cog"></i> Execution Mode</h3>
+                    <div class="mode-selector">
+                        <button id="directMode" class="mode-btn active"><i class="fas fa-play"></i> Direct</button>
+                        <button id="stepMode" class="mode-btn"><i class="fas fa-step-forward"></i> Step</button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-database"></i> Array Operations</h3>
+                    <div class="array-controls">
+                        <div class="input-group">
+                            <label for="arraySize">Size:</label>
+                            <input type="number" id="arraySize" min="1" max="20" value="10">
+                            <button id="createArray" class="btn"><i class="fas fa-plus-circle"></i> Create</button>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="arrayValue">Value:</label>
+                            <input type="number" id="arrayValue" value="0">
+                            <label for="arrayIndex">Index:</label>
+                            <input type="number" id="arrayIndex" min="0" value="0">
+                            <div class="operation-buttons">
+                                <button id="insertElement" class="btn"><i class="fas fa-plus"></i> Insert</button>
+                                <button id="updateElement" class="btn"><i class="fas fa-edit"></i> Update</button>
+                                <button id="deleteElement" class="btn"><i class="fas fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-search"></i> Advanced Operations</h3>
+                    <div class="advanced-controls">
+                        <select id="operationSelect">
+                            <option value="">Select Operation</option>
+                            <option value="linearSearch">Linear Search</option>
+                            <option value="binarySearch">Binary Search</option>
+                            <option value="bubbleSort">Bubble Sort</option>
+                        </select>
+                        <div class="input-group">
+                            <label for="searchValue">Search Value:</label>
+                            <input type="number" id="searchValue" value="5">
+                            <button id="executeOperation" class="btn"><i class="fas fa-play"></i> Execute</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-sliders-h"></i> Animation Controls</h3>
+                    <div class="animation-controls">
+                        <button id="playPause" class="btn" disabled><i class="fas fa-play"></i></button>
+                        <button id="stop" class="btn" disabled><i class="fas fa-stop"></i></button>
+                        <button id="rewind" class="btn" disabled><i class="fas fa-undo"></i></button>
+                        <div class="speed-control">
+                            <label for="animationSpeed">Speed:</label>
+                            <input type="range" id="animationSpeed" min="1" max="10" value="5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <div class="code-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-code"></i> C++ Code</h3>
+                    </div>
+                    <div class="code-content" id="codeContent">
+                        <pre><code>// Your C++ code will appear here
+// Create an array or select an operation to see the code</code></pre>
+                    </div>
+                </div>
+
+                <div class="visual-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-eye"></i> Array Visualization</h3>
+                    </div>
+                    <div class="visual-content" id="visualContent">
+                        <div class="empty-state">
+                            <i class="fas fa-cube"></i>
+                            <p>Create an array to begin visualization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-controls" id="stepControls" style="display: none;">
+            <button id="prevStep" class="step-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+            <span id="stepIndicator">Step 0 of 0</span>
+            <button id="nextStep" class="step-btn"><i class="fas fa-arrow-right"></i> Next</button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
